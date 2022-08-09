@@ -10,7 +10,7 @@ const SwapPage = () => {
         container
         justifyContent="space-between"
         alignItems="top"
-        spacing={4}
+        columnSpacing={4}
       >
         <Grid item md={7} sm={12}>
           <Hidden smDown>

@@ -49,8 +49,9 @@ footer {
   text-align: center;
   background-color: rgba(0, 16, 32, 0.7);
   padding: 15px 0 20px 0;
-  bottom: 0;
+  /* bottom: 0; */
   width: 100%;
+  /* position: absolute; */
 }
 
 footer p {

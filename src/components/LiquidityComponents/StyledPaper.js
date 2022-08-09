@@ -3,11 +3,12 @@ import React from "react";
 
 export const StyledPaper = styled(Paper)(({ theme, text }) => ({
   width: text ? "100%" : "100%",
+  minWidth: "700px",
   // maxWidth: 700,
   // minWidth: "90vw",
-  // [theme.breakpoints.down("md")]: {
-  minWidth: "90vw",
-  // },
+  [theme.breakpoints.down("md")]: {
+    minWidth: "90vw",
+  },
   padding: text ? "10px" : "10px 18px",
   borderRadius: "16px",
   background: "#161522",

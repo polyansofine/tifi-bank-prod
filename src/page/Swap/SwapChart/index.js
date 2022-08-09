@@ -6,10 +6,7 @@ import { memo, useState, useEffect } from "react";
 import ReactApexChart from "react-apexcharts";
 import { useDispatch, useSelector } from "react-redux";
 import * as chartActions from "../../../store/actions";
-import {
-  StyledChartPaper,
-  StyledPaper,
-} from "../../../components/LiquidityComponents/StyledPaper";
+import { StyledChartPaper } from "../../../components/LiquidityComponents/StyledPaper";
 import HelpIcon from "@mui/icons-material/Help";
 import useTranslation from "../../../context/Localization/useTranslation";
 

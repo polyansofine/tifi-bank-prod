@@ -341,6 +341,7 @@ const Swap = () => {
         }
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [address, dispatch, provider, token0.title, token1.title, t]
   );
 

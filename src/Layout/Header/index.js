@@ -33,7 +33,7 @@ import { toFixed } from "../../utils/tifi";
 import useTranslation from "../../context/Localization/useTranslation";
 import { EN, DE, ZHCN, ZHTW, AR } from "../../config/localization/languages";
 import MenuIcon from "@mui/icons-material/Menu";
-import WalletConnect from "./../../components/WalletConnect/index";
+// import WalletConnect from "./../../components/WalletConnect/index";
 const pages = [
   {
     title: "Home",
@@ -185,14 +185,26 @@ const Header = (props) => {
         <Grid item>
           {account && (
             <Hidden smUp>
-              <Button>
-                <AccountBalanceWalletIcon />
-                <a
-                  href={`${BSC_SCAN_URL}/address/${account}`}
-                  target="_blank"
-                  rel="noreferrer"
-                >{`0x...${account.substring(38)}`}</a>
-              </Button>
+              <FormControl>
+                <Select
+                  sx={{
+                    color: "white",
+                    icon: { color: "white" },
+                    fontSize: "14px",
+                    fontWeight: 600,
+                  }}
+                  value={currentLanguage}
+                  label="lauguage"
+                  title="Select Your Favorite Language"
+                  onChange={changeLanguage}
+                >
+                  <MenuItem value={EN}>English</MenuItem>
+                  <MenuItem value={AR}>العربية</MenuItem>
+                  <MenuItem value={DE}>Deutsch</MenuItem>
+                  <MenuItem value={ZHCN}>简体中文</MenuItem>
+                  <MenuItem value={ZHTW}>繁體中文</MenuItem>
+                </Select>
+              </FormControl>
             </Hidden>
           )}
         </Grid>
@@ -273,16 +285,14 @@ const Header = (props) => {
               )}
               {account ? (
                 <>
-                  <Hidden smDown>
-                    <Button>
-                      <AccountBalanceWalletIcon />
-                      <a
-                        href={`${BSC_SCAN_URL}/address/${account}`}
-                        target="_blank"
-                        rel="noreferrer"
-                      >{`0x...${account.substring(38)}`}</a>
-                    </Button>
-                  </Hidden>
+                  <Button>
+                    <AccountBalanceWalletIcon />
+                    <a
+                      href={`${BSC_SCAN_URL}/address/${account}`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >{`0x...${account.substring(38)}`}</a>
+                  </Button>
                   &nbsp;
                   <Button
                     variant="contained"
@@ -298,27 +308,28 @@ const Header = (props) => {
               ) : (
                 <WalletConnectButton />
               )}
-
-              <FormControl>
-                <Select
-                  sx={{
-                    color: "white",
-                    icon: { color: "white" },
-                    fontSize: "14px",
-                    fontWeight: 600,
-                  }}
-                  value={currentLanguage}
-                  label="lauguage"
-                  title="Select Your Favorite Language"
-                  onChange={changeLanguage}
-                >
-                  <MenuItem value={EN}>English</MenuItem>
-                  <MenuItem value={AR}>العربية</MenuItem>
-                  <MenuItem value={DE}>Deutsch</MenuItem>
-                  <MenuItem value={ZHCN}>简体中文</MenuItem>
-                  <MenuItem value={ZHTW}>繁體中文</MenuItem>
-                </Select>
-              </FormControl>
+              <Hidden smDown>
+                <FormControl>
+                  <Select
+                    sx={{
+                      color: "white",
+                      icon: { color: "white" },
+                      fontSize: "14px",
+                      fontWeight: 600,
+                    }}
+                    value={currentLanguage}
+                    label="lauguage"
+                    title="Select Your Favorite Language"
+                    onChange={changeLanguage}
+                  >
+                    <MenuItem value={EN}>English</MenuItem>
+                    <MenuItem value={AR}>العربية</MenuItem>
+                    <MenuItem value={DE}>Deutsch</MenuItem>
+                    <MenuItem value={ZHCN}>简体中文</MenuItem>
+                    <MenuItem value={ZHTW}>繁體中文</MenuItem>
+                  </Select>
+                </FormControl>
+              </Hidden>
             </Box>
           </Toolbar>
         </Container>

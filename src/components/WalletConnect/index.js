@@ -1,4 +1,5 @@
-import { Button, useTheme } from "@mui/material";
+/* eslint-disable eqeqeq */
+import { Button } from "@mui/material";
 import { ethers } from "ethers";
 import React, { useEffect, useState } from "react";
 import Web3Modal from "web3modal";
@@ -15,10 +16,9 @@ const web3Modal = new Web3Modal({
 const WalletConnect = ({ type }) => {
   const dispatch = useDispatch();
   const { t } = useTranslation();
-  const theme = useTheme();
   const [provider, setProvider] = useState();
-  const [library, setLibrary] = useState();
-  const [account, setAccount] = useState();
+  const [, setLibrary] = useState();
+  const [, setAccount] = useState();
   const [, setSignature] = useState("");
   const [error, setError] = useState("");
   const [, setChainId] = useState();
