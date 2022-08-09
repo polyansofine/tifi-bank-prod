@@ -1,10 +1,26 @@
 import { ButtonBase, InputBase, Paper, styled } from "@mui/material";
 import React from "react";
 
-export const StyledPaper = styled(Paper)(({ text }) => ({
+export const StyledPaper = styled(Paper)(({ theme, text }) => ({
   width: text ? "100%" : "100%",
   // maxWidth: 700,
+  // minWidth: "90vw",
+  // [theme.breakpoints.down("md")]: {
+  minWidth: "90vw",
+  // },
+  padding: text ? "10px" : "10px 18px",
+  borderRadius: "16px",
+  background: "#161522",
+  color: "grey",
+}));
+export const StyledChartPaper = styled(Paper)(({ theme, text }) => ({
+  width: text ? "100%" : "100%",
   minWidth: "450px",
+  // maxWidth: 700,
+  // minWidth: "90vw",
+  // [theme.breakpoints.down("md")]: {
+  // minWidth: "90vw",
+  // },
   padding: text ? "10px" : "10px 18px",
   borderRadius: "16px",
   background: "#161522",

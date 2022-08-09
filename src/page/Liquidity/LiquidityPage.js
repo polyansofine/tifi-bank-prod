@@ -66,7 +66,7 @@ const LiquidityPage = () => {
   return (
     <div>
       <Grid container justifyContent="center">
-        <Grid item md={8} xs={12}>
+        <Grid item>
           {remove.balance ? <RemovePad /> : <YourLiquidity loading={loading} />}
         </Grid>
       </Grid>

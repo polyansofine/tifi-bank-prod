@@ -6,7 +6,10 @@ import { memo, useState, useEffect } from "react";
 import ReactApexChart from "react-apexcharts";
 import { useDispatch, useSelector } from "react-redux";
 import * as chartActions from "../../../store/actions";
-import { StyledPaper } from "../../../components/LiquidityComponents/StyledPaper";
+import {
+  StyledChartPaper,
+  StyledPaper,
+} from "../../../components/LiquidityComponents/StyledPaper";
 import HelpIcon from "@mui/icons-material/Help";
 import useTranslation from "../../../context/Localization/useTranslation";
 
@@ -177,7 +180,7 @@ function SwapChart() {
   }, [prices, token1.title]);
 
   return (
-    <StyledPaper sx={{ py: 4 }}>
+    <StyledChartPaper sx={{ py: 4 }}>
       <div>
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
           <div>
@@ -218,7 +221,7 @@ function SwapChart() {
         type={options.chart.type}
         height={options.chart.height}
       />
-    </StyledPaper>
+    </StyledChartPaper>
   );
 }
 

@@ -18,6 +18,7 @@ import {
   Divider,
   IconButton,
   Drawer,
+  Hidden,
 } from "@mui/material";
 import logo from "../../assets/image/TiFi.png";
 import { useNavigate } from "react-router-dom";
@@ -171,13 +172,31 @@ const Header = (props) => {
       </List>
 
       <Divider sx={{ borderColor: "#005bcf" }} />
-      {price && (
-        <Button
-          sx={{ mt: 2 }}
-          title="View TIFI on CoinMarketCap"
-          href="https://coinmarketcap.com/currencies/tifi-token/"
-        >{`TIFI $${price}`}</Button>
-      )}
+      <Grid container flexDirection="column" justifyContent="center">
+        <Grid item>
+          {price && (
+            <Button
+              sx={{ mt: 2 }}
+              title="View TIFI on CoinMarketCap"
+              href="https://coinmarketcap.com/currencies/tifi-token/"
+            >{`TIFI $${price}`}</Button>
+          )}
+        </Grid>
+        <Grid item>
+          {account && (
+            <Hidden smUp>
+              <Button>
+                <AccountBalanceWalletIcon />
+                <a
+                  href={`${BSC_SCAN_URL}/address/${account}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >{`0x...${account.substring(38)}`}</a>
+              </Button>
+            </Hidden>
+          )}
+        </Grid>
+      </Grid>
     </Box>
   );
   const container =
@@ -254,14 +273,16 @@ const Header = (props) => {
               )}
               {account ? (
                 <>
-                  <Button>
-                    <AccountBalanceWalletIcon />
-                    <a
-                      href={`${BSC_SCAN_URL}/address/${account}`}
-                      target="_blank"
-                      rel="noreferrer"
-                    >{`0x...${account.substring(38)}`}</a>
-                  </Button>
+                  <Hidden smDown>
+                    <Button>
+                      <AccountBalanceWalletIcon />
+                      <a
+                        href={`${BSC_SCAN_URL}/address/${account}`}
+                        target="_blank"
+                        rel="noreferrer"
+                      >{`0x...${account.substring(38)}`}</a>
+                    </Button>
+                  </Hidden>
                   &nbsp;
                   <Button
                     variant="contained"
